@@ -9,8 +9,8 @@ CHANNELS = 1  # 声道数
 BUFFER_LENGTH_IN_BYTES = 4096  # 缓冲区长度
 
 # 配置 I2S 引脚
-WS_PIN = 8
-SCK_PIN = 4
+WS_PIN = 4
+SCK_PIN = 8
 SD_PIN = 5
 
 # 初始化 I2S 对象

@@ -2,12 +2,13 @@ from machine import SPI, Pin
 from ssd1306 import SSD1306
 import time
 import ufont
+import icon
 
-D0 = Pin(2)  # SCK
-D1 = Pin(3)  # MOSI
-RES = Pin(10)
-DC = Pin(6)
-CS = Pin(7)
+D0 = Pin(0)  # SCK
+D1 = Pin(1)  # MOSI
+RES = Pin(12)
+DC = Pin(13)
+CS = Pin(9)
 
 spi = SPI(1,baudrate=8000000, sck=D0, mosi=D1)
 display = SSD1306(spi=spi, dc=DC, res=RES, cs=CS)
@@ -15,6 +16,16 @@ display.fill(0)
 
 # 载入字体
 font = ufont.BMFont("font.bmf")
+
+
+display.show_image(0, 0, icon.wifi, 16, 16)
+display.show_image(18, 0, icon.ble, 16, 16)
+display.show_image(36, 0, icon.email, 16, 16)
+font.text(display, "100%", 78, 0, show=True)
+display.show_image(112, 0, icon.battery_charge, 16, 16)
+display.show_image(48, 16, icon.face_smile, 32, 32)
+font.text(display, "今日安好诸事顺遂", 0, 48)
+display.show()
 
 '''
 # 最简单的显示 "你好",其中指定 `show=True` 使得屏幕及时更新
@@ -64,6 +75,7 @@ font.text(display, "T:15℃", 24, 8, font_size=32, show=True, clear=True, revers
 time.sleep(1)
 '''
 
+'''
 # 字模生成地址 https://www.zhetao.com/fontarray.html
 # 16x16点阵字模（"福"字）
 fu = bytearray([
@@ -136,5 +148,6 @@ while True:
     display.fill_rect(82, 47, 46, 9,1)
     display.text(str(n), 82, 48,0)
     display.show()
+'''
 
       

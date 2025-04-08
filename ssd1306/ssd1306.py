@@ -133,6 +133,6 @@ class SSD1306(framebuf.FrameBuffer):
         fb = framebuf.FrameBuffer(font_data, width, height, framebuf.MONO_HLSB)
         self.blit(fb, x, y)
 
-    def show_image(self,x, y, img_data, width=32, height=32):
+    def show_image(self,x, y, img_data, width=16, height=16):
         fb = framebuf.FrameBuffer(img_data, width, height, framebuf.MONO_HLSB)
         self.blit(fb, x, y)

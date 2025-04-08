@@ -106,7 +106,7 @@ class IR(object):
 
 
 if __name__ == "__main__":
-    t = IR(2)
+    t = IR(7)
     while(True):
         changed, s, repeat, t_ok = t.scan()
         if changed and repeat>0:
