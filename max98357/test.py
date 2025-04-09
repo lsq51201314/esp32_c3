@@ -10,7 +10,7 @@ lrc_pin = Pin(10)
 # 初始化i2s
 audio_out = I2S(0, sck=blck_pin, ws=lrc_pin, sd=din_pin, mode=I2S.TX, bits=16, format=I2S.MONO, rate=44100, ibuf=20000)
   
-wavtempfile = "test.wav"
+wavtempfile = "WIFI连接成功，现在您可以和我对话啦！.wav"
 with open(wavtempfile,'rb') as f:
  
     # 跳过文件的开头的44个字节，直到数据段的第1个字节

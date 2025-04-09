@@ -17,7 +17,18 @@ display.fill(0)
 # 载入字体
 font = ufont.BMFont("font.bmf")
 
+from uQR import QRCode
+qr = QRCode()
+qr.add_data('http://192.168.4.1')
+matrix = qr.get_matrix()
 
+for y in range(len(matrix)*2): 
+    for x in range(len(matrix[0])*2):
+        value = not matrix[int(y/2)][int(x/2)] 
+        display.pixel(x, y, value) 
+display.show()  
+
+'''
 display.show_image(0, 0, icon.wifi, 16, 16)
 display.show_image(18, 0, icon.ble, 16, 16)
 display.show_image(36, 0, icon.email, 16, 16)
@@ -26,6 +37,7 @@ display.show_image(112, 0, icon.battery_charge, 16, 16)
 display.show_image(48, 16, icon.face_smile, 32, 32)
 font.text(display, "今日安好诸事顺遂", 0, 48)
 display.show()
+'''
 
 '''
 # 最简单的显示 "你好",其中指定 `show=True` 使得屏幕及时更新
